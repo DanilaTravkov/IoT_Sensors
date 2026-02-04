@@ -9,6 +9,8 @@ from components.dms import run_dms
 from components.dl import initialize_dl, control_dl
 from components.db import initialize_db, control_db
 
+from services.mqqt_service import MQTTPublisherDaemon
+
 # try:
 #     import RPi.GPIO as GPIO
 #     GPIO.setmode(GPIO.BCM)
@@ -56,7 +58,14 @@ def main():
         return
     
     print_settings(settings)
+
+    device_cfg = settings["device"]
+    mqtt_cfg = device_cfg["mqtt"]
     
+    print("\nStarting MQTT batch daemon")
+    mqtt_daemon = MQTTPublisherDaemon(mqtt_cfg)
+    mqtt_daemon.start()
+
     pi1_settings = settings.get('PI1', {})
     if not pi1_settings:
         print("No PI1 configuration found in settings!")

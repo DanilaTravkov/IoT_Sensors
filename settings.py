@@ -26,7 +26,10 @@ def print_settings(settings):
     print("="*50)
     
     for pi_name, devices in settings.items():
+        if pi_name == "device":
+            continue
+
         print(f"\n{pi_name}:")
         for device_code, device_config in devices.items():
-            status = "SIMULATED" if device_config['simulated'] else "REAL"
-            print(f"  {device_code}: {device_config['name']} - {status}")
+            status = "SIMULATED" if device_config["simulated"] else "REAL"
+            print(f"{device_code}: {device_config['name']} - {status}")

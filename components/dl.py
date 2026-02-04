@@ -1,6 +1,6 @@
 from simulators.dl import DoorLightSimulator
 
-# Global instance for actuator
+# Global instance for different envs (real PI or simulator)
 door_light_instance = None
 
 def initialize_dl(settings):

@@ -1,6 +1,6 @@
 from simulators.db import DoorBuzzerSimulator
 
-# Global instance for actuator
+# global instance for actuator
 door_buzzer_instance = None
 
 def initialize_db(settings):
@@ -17,7 +17,6 @@ def initialize_db(settings):
         pass
 
 def control_db(command, duration=1):
-    """Control door buzzer with commands: buzz, start, stop, status"""
     global door_buzzer_instance
     
     if door_buzzer_instance is None:

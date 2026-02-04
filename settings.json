@@ -1,28 +1,45 @@
 {
+    "device": {
+        "pi_id": "PI1",
+        "device_name": "Smart Door Controller",
+        "mqtt": {
+            "host": "localhost",
+            "port": 1883,
+            "base_topic": "smarthome/pi1",
+            "batch_size": 5,
+            "batch_interval_sec": 5
+        }
+    },
     "PI1": {
         "DS1": {
             "simulated": true,
-            "name": "Door Sensor 1"
+            "name": "Door Sensor 1",
+            "topic": "sensor/door"
         },
         "DL": {
             "simulated": true,
-            "name": "Door Light"
+            "name": "Door Light",
+            "topic": "actuator/light"
         },
         "DUS1": {
             "simulated": true,
-            "name": "Door Ultrasonic Sensor 1"
+            "name": "Door Ultrasonic Sensor 1",
+            "topic": "sensor/distance"
         },
         "DB": {
             "simulated": true,
-            "name": "Door Buzzer"
+            "name": "Door Buzzer",
+            "topic": "actuator/buzzer"
         },
         "DPIR1": {
             "simulated": true,
-            "name": "Door Motion Sensor 1"
+            "name": "Door Motion Sensor 1",
+            "topic": "sensor/motion"
         },
         "DMS": {
             "simulated": true,
-            "name": "Door Membrane Switch"
+            "name": "Door Membrane Switch",
+            "topic": "sensor/button"
         }
     }
 }
